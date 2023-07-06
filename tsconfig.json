@@ -1,0 +1,10 @@
+{
+  "extends": ["@tsconfig/strictest/tsconfig.json", "@tsconfig/node-lts/tsconfig.json"],
+  "exclude": ["node_modules", "dist", "bin", "lib"],
+  "compilerOptions": {
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "noEmit": true,
+    "types": ["vitest/importMeta"]
+  }
+}

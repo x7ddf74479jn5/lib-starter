@@ -1,0 +1,72 @@
+{
+  "name": "@x7ddf74479jn5/lib-starter",
+  "description": "libary template",
+  "version": "0.0.0",
+  "type": "module",
+  "sideEffects": false,
+  "repository": "https://github.com/x7ddf74479jn5/lib-starter.git",
+  "author": "x7ddf74479jn5 <x7ddf74479jn5@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      }
+    }
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "dev": "pnpm run build && pnpm bin/example-command.js",
+    "lint": "run-p -l -c lint:*",
+    "lint:tsc": "tsc -p .",
+    "lint:eslint": "eslint .",
+    "lint:prettier": "prettier --check .",
+    "format": "run-p -l -c format:*",
+    "format:eslint": "eslint --fix .",
+    "format:prettier": "prettier --write .",
+    "test": "vitest --run"
+  },
+  "prettier": "@x7ddf74479jn5/prettier-config-x7ddf74479jn5",
+  "devDependencies": {
+    "@tsconfig/node-lts": "18.12.3",
+    "@tsconfig/strictest": "^2.0.1",
+    "@types/eslint": "^8.40.2",
+    "@types/node": "^20.3.3",
+    "@x7ddf74479jn5/eslint-config-x7ddf74479jn5": "^2.0.0",
+    "@x7ddf74479jn5/prettier-config-x7ddf74479jn5": "^1.0.0",
+    "eslint": "^8.44.0",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^3.0.0",
+    "typescript": "^5.1.6",
+    "vitest": "^0.32.4",
+    "vitest-github-actions-reporter": "^0.10.0"
+  },
+  "pnpm": {
+    "overrides": {
+      "tsconfig-paths": "^4.0.0"
+    }
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "bin": {
+    "example-command": "bin/example-command.js"
+  },
+  "keywords": [],
+  "files": [
+    "bin",
+    "src",
+    "!src/**/*.test.ts",
+    "!src/**/__snapshots__",
+    "dist"
+  ]
+}
