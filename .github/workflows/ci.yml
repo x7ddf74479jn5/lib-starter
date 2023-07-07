@@ -11,22 +11,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: '18'
-          cache: 'pnpm'
-      - run: pnpm install
+      - name: Setup Node and restore packages
+        uses: ./.github/actions/setup-node-and-restore-packages
       - run: pnpm run lint
 
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: '18'
-          cache: 'pnpm'
-      - run: pnpm install
+      - name: Setup Node and restore packages
+        uses: ./.github/actions/setup-node-and-restore-packages
       - run: pnpm run build
 
   test:
@@ -35,10 +29,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: '18'
-          check-latest: true
-          cache: 'pnpm'
-      - run: pnpm install
+      - name: Setup Node and restore packages
+        uses: ./.github/actions/setup-node-and-restore-packages
       - run: pnpm run test
